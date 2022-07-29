@@ -24,10 +24,10 @@ public class bulletScript : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "spawn") {
-            Destroy(this);
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "spawn") {
+    //        collision.manager.clearOne(collision);
+    //    }
+    //}
 }

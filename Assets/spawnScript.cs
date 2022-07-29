@@ -5,7 +5,7 @@ using UnityEngine;
 public class spawnScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    private SpawnManager manager;
+    public SpawnManager manager;
     void Start()
     {
         manager = FindObjectOfType<SpawnManager>();
@@ -17,4 +17,9 @@ public class spawnScript : MonoBehaviour
             manager.ClearOne(this.gameObject);
         }
     }
+
+    public void rayHover() {
+        manager.ClearOne(this.gameObject);
+    }
+
 }
