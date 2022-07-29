@@ -15,14 +15,15 @@ public class PlayerController : MonoBehaviour
     public SpawnManager manager;
     public LineRenderer line;
     public Text info;
-    public int sensetivity;
+    public float sensetivity = 0.10f;
     public Vector3 offset;
 
     // Start is called before the first frame update
     void Start()
     {
         manager.GetComponent<SpawnManager>();
-        sensetivity = 10;
+        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -31,8 +32,8 @@ public class PlayerController : MonoBehaviour
 
 
        //change of camera based on mouse movement
-        Camera.main.transform.Rotate(Vector3.down, Input.GetAxis("Mouse X"));
-        Camera.main.transform.Rotate(Vector3.left, Input.GetAxis("Mouse Y"));
+        Camera.main.transform.Rotate(Vector3.down, Input.GetAxis("Mouse X") *Time.deltaTime *sensetivity);
+        Camera.main.transform.Rotate(Vector3.left, Input.GetAxis("Mouse Y") *Time.deltaTime *sensetivity);
         Camera.main.transform.Rotate(Vector3.forward, 0f);
         //Creates an ray
         r = Camera.main.ScreenPointToRay(Input.mousePosition);
